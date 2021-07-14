@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Find Memories</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+            <link rel="stylesheet" href="./css/global.css">
+            <link rel="stylesheet" href="./css/default.css">
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+            <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"> 
+            <meta name="viewport" content="height=device-height; initial-scale=1.0">
+        </head>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="./js/memories.js"></script>
+               
+        <body>
+           <style type="text/css">
+            
+            html , body
+{  
+	
+	height: 100%;
+	height: 100%;
+    background: linear-gradient(135deg, #C779D0 0%, #4BC0C8 100%);
+	background: -webkit-linear-gradient(135deg, #C779D0 0%, #4BC0C8 100%);
+	background: -moz-linear-gradient(135deg, #C779D0  0%, #4BC0C8 100%);
+	background: -ms-linear-gradient(135deg, #C779D0 0%, #4BC0C8 100%);
+	background: -o-linear-gradient(135deg, #C779D0 0%, #4BC0C8 100%);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-size:cover;
+	overflow: hidden;
+}
+               
+               
+                   a:link, a:visited, a:hover
+    {
+        color: black;
+        text-decoration: none;
+    }
+
+
+    .memory_listing
+    {
+        font-size: 1.1vw;
+        font-weight: bold;
+        padding: 10px;
+        text-align: justify;
+    }
+
+            </style>
+            
+            
+            
+<div class="modal fade" id="modal_login" tabindex="-1" role="login" aria-labelledby="modal_login" aria-hidden="true">
+    <form action="./index.php/accounts/login" method="post" id="account">
+        <input type="hidden" name='login' id="login" value="0">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="$('#modal_login').toggle();">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                
+            </div>
+            <div class="modal-body">
+                <div class="col alert alert-danger" id="modal_error_message">tets</div>
+
+                <div id="modal_create_account">
+                    <p class="signup">Please sign up to share your story.</p><p class="virtual">It is to protect the virtual space.</p>
+                    <p class="account"><em>already have an account? <a href="javascript:void(0);" onClick="login_switch(2);" class="signin">sign in here</a></em></p>
+                    <br><br>
+
+                        <div class="form-group">
+                            <label for="login_email" class="email">email</label><br>
+                            <input type="email" class="form-control" name="email" id="email_1" placeholder="your email" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                        <label for="password" class="email">password</label><br>
+                            <input type="password" class="form-control" name="password" id="password_1" placeholder="password" required>
+                        </div>
+                </div>
+                <div id="modal_login_account">
+                    <p>Please log in to share your story. <em><a href="javascript:void(0);" onClick="login_switch(3);">Forgot Password</a> or <a href="javascript:void(0);" onClick="login_switch(1);">Create New Account</a></em></p>
+                        <div class="form-group">
+                            <label for="login_email">Email</label><br>
+                            <input type="email" class="form-control" name="email" id="email_2" required disabled="disabled">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                        <label for="password">Password</label><br>
+                            <input type="password" class="form-control" name="password" id="password_2" required disabled="disabled">
+                        </div>
+                </div>
+                <div id="modal_login_reset">
+                    <p>Please enter account email to reset your password. If you remember your password <em><a href="javascript:void(0);" onClick="login_switch(2)">Login</a></em> or <em><a href="javascript:void(0);" onClick="login_switch(1);">Create New Account</a></em></p>
+
+                        <div class="form-group">
+                            <label for="login_email">Email</label><br>
+                            <input type="email" class="form-control" name="email" id="email_3" required disabled="disabled">
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col">
+                    <button type="submit" form="account" class="btn btn-primary col" id="modal_login_submit" value="submit">Create Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+         <script type="text/javascript">
+                var lfrm = $('#account');
+                lfrm.submit(function(e){
+                    e.preventDefault();
+
+                    $.ajax({
+                        type: lfrm.attr('method'),
+                        url: lfrm.attr('action'),
+                        data: lfrm.serialize(),
+                        success: function (data){
+                            window.location.href = './index.php/share-my-memory';
+                            console.log(data);
+                        },
+                        error: function(data){
+                            $('#modal_login').effect("shake");
+                            if($('#modal_create_account').css('display')=="block")
+                                $('#modal_error_message').html('Email already associated with account.  Please Sign in');
+                            else
+                                $('#modal_error_message').html('Invalide Email or Password!');
+                            
+                            if($('#modal_error_message').css('display')!='block')
+                                $('#modal_error_message').toggle();
+
+                        }
+                    });
+                });
+            </script>
+</div>
+
+<br>
+
+<!-- Top Navigation -->
+<div class="h_button"><a href="home.html" class="home_btn"></a></div>
+<br>
+
+<div class="row" id="navigation">
+    <div class="offset-md-8 col-md-2 navigation_option" onClick="$('#modal_login').modal('toggle')">
+        <span class="main_btn_grey"><h2>share</h2></span>
+       <h3 class="main_btn_form">I would like to add <br> my story.</h3>
+    </div>
+    <div class="col-md-2 navigation_option">
+        <span class="main_btn_grey"><h2>explore</h2></span>
+         <h3 class="main_btn_form">I would like to see <br> other people's stories.</h3>
+    </div>
+</div> 
+
+<form action="http://localhost/memories/index.php/submit-my-memory" class="form-inline" method="post">
+
+   
+    <style>
+     #memory_type .row_memory .row img
+     {
+        margin: .3% 1.5% 3% 0%;
+     }
+     
+      #memory_type .row_memory .row img:hover
+     {
+      opacity: .6;
+     }
+     
+     #memory_type .row_memory .row
+     {
+       margin-left: 5%;
+     }
+     
+     #search_content .row_memory img
+     {
+        margin: .3% 1.5% 1% 0;
+     }
+
+     
+.notes
+{
+    background-attachment: local;
+    background-image: url("./images/textarea.png");
+    background-repeat: no-repeat;
+    background-position: 14px 32px;
+    line-height: 40px;
+    padding: 8px 10px;
+}
+        
+        .memory_content {
+            background-color: white;
+            padding: 3% 3% 3% 3%;
+            /'margin-bottom: 10%;
+           
+        }
+        
+    </style>
+    <br><br>
+
+<br><br>
+   
+
+<div class="container" id="search_content">
+
+    <div class="container">
+    <div class="row_memory">
+        <h2 class="question_2" style="margin:0 0 0 0;">
+             I would like to <span class="gradient">read</span> stories about  &nbsp;<span style="text-decoration: underline; white-space: pre; ">                          &#46;</span>
+        </h2>
+        <br>
+        <div class="row">
+          <img src="./images/icons-01.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-02.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-03.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-04.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-05.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-06.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-07.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-08.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-09.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-10.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+          <img src="./images/icons-11.svg" height="60px" onClick="display_layer('memory_type','memory');return false;">
+        </div>
+    </div>
+    </div>
+    <br><br>
+    
+    
+      <div class="memory_content">
+    <div class='row memory_listing'>
+		<div class='col memory_harm'>"Had my first car accident."</div>
+		<div class='col memory_breakup'>"I have not"</div>
+	</div>
+<br>
+    
+    
+  
+<div class='row memory_listing'>
+<div class='col memory_breakup'>"sdadfasdfadfasdfas dfasdf asdf
+asdfasd fasdf
+asdf asdf asdfasdf 
+asdfasdfasdfasdf a liajsrakndflkansdfaksdflaksdjaerkaiera;ieras;iasdfilajsdfl;kaj"</div>
+<div class='col memory_other'>"Test"</div>
+</div>
+<br>
+<div class='row memory_listing'>
+<div class='col memory_other'>"asdfasdf asd fasd fasdf"</div><div class='col memory_triumph'>"I graduated from Texas State University with my Bachelor's degree."</div></div>
+<div class='col memory_triumph'>"gfhfhn"</div>
+<br>
+<div class='row memory_listing'>
+<div class='col memory_defeat'>"Had my first fight, and lost."</div><div class='col memory_triumph'>"I graduated for UT Texas."</div></div>
+<br>
+    
+ </div>   
+
+<div class="about_form" onClick="display_info();">
+        <a href="" class="about_btn" ></a>        
+</div>
+
+<div class="row">
+	<div id="about_info" onClick="display_info();">
+		
+		<p class="info">
+				<em style="line-height: 2em;">Director, Designer, Front-end Developer:<br> MiHyun Kim<br>
+				Back-end developer: Alberto Mendoza</em>
+		</p>
+	</div>
+</div>
+
+
+	</body>
+
+    <!--  Loading Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</html>

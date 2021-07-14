@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Placed...</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+            <link rel="stylesheet" href="./css/global.css">
+            <link rel="stylesheet" href="./css/default.css">
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+            <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+			<link rel="stylesheet" href="https://use.typekit.net/vxt6nby.css">
+            <meta name="viewport" content="width=device-width; initial-scale=1.0">
+			 <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet"> 
+        </head>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="./js/memories.js"></script>
+               
+        <body><style type="text/css">
+a
+{
+	color:white;
+}
+
+a:hover
+{
+	color: white;
+	text-decoration: none;
+}
+
+html , body
+{  
+	
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: -webkit-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: -moz-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: -ms-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: -o-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-size:cover;
+	overflow: hidden;
+}
+
+.home {
+    max-width: 40px;
+	margin-left: 15px;
+	/'border: 1px solid black;
+}
+
+.about {
+	
+}
+
+
+</style>
+<div class="modal fade" id="modal_login" tabindex="-1" role="login" aria-labelledby="modal_login" aria-hidden="true">
+    <form action="https://userweb.cs.txstate.edu/~am1214/memories/index.php/accounts/login" method="post" id="account">
+        <input type="hidden" name='login' id="login" value="0">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="$('#modal_login').toggle();">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                
+            </div>
+            <div class="modal-body">
+                <div class="col alert alert-danger" id="modal_error_message">tets</div>
+
+                <div id="modal_create_account">
+                    <p class="signup">Please sign up to share your story.</p><p class="virtual">It is to protect the virtual space.</p>
+                    <p class="account"><em>already have an account? <a href="javascript:void(0);" onClick="login_switch(2);" class="signin">sign in here</a></em></p>
+                    <br><br>
+
+                        <div class="form-group">
+                            <label for="login_email" class="email">email</label><br>
+                            <input type="email" class="form-control" name="email" id="email_1" placeholder="your email" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                        <label for="password" class="email">password</label><br>
+                            <input type="password" class="form-control" name="password" id="password_1" placeholder="password" required>
+                        </div>
+                </div>
+                <div id="modal_login_account">
+                    <p class="signup">Please log in to share your story. </p><p class="account"><em><a href="javascript:void(0);" onClick="login_switch(3);" class="signin">forgot password</a> or <a href="javascript:void(0);" onClick="login_switch(1);" class="signin">create new account</a></em></p>
+                        <br><br>
+						
+						<div class="form-group">
+                            <label for="login_email" class="email">email</label><br>
+                            <input type="email" class="form-control" name="email" id="email_2" placeholder="your email" required disabled="disabled">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                        <label for="password" class="email">password</label><br>
+                            <input type="password" class="form-control" name="password" id="password_2" placeholder="password" required disabled="disabled">
+                        </div>
+                </div>
+                <div id="modal_login_reset">
+                    <p class="signup">Please enter account email to <br>reset your password. </p><p class="account"><em><a href="javascript:void(0);" onClick="login_switch(2)" class="signin">sign in here</a></em> or <em><a href="javascript:void(0);" onClick="login_switch(1);" class="signin">
+					create new account</a></em></p>
+					<br>
+					<br>
+
+                        <div class="form-group">
+                            <label for="login_email" class="email">email</label><br>
+                            <input type="email" class="form-control" name="email" id="email_3" placeholder="your email" required disabled="disabled">
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col">
+                    <button type="submit" form="account" class="btn btn-primary col" id="modal_login_submit" value="submit">create account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <script type="text/javascript">
+        var lfrm = $('#account');
+        lfrm.submit(function(e){
+            e.preventDefault();
+			
+			window.location.href = "./form.htm";
+
+           /* $.ajax({
+                type: lfrm.attr('method'),
+                url: lfrm.attr('action'),
+                data: lfrm.serialize(),
+                success: function (data){
+                    window.location.href = 'https://userweb.cs.txstate.edu/~am1214/memories/index.php/share-my-memory';
+                    console.log(data);
+                },
+                error: function(data){
+                    $('#modal_login').effect("shake");
+                    if($('#modal_create_account').css('display')=="block")
+                        $('#modal_error_message').html('Email already associated with account.  Please Sign in');
+                    else
+                        $('#modal_error_message').html('Invalide Email or Password!');
+                    
+                    if($('#modal_error_message').css('display')!='block')
+                        $('#modal_error_message').toggle();
+
+                }
+            });*/
+        });
+    </script>
+</div>
+
+<br>
+
+<!-- Top Navigation -->
+<div class="h_button" onClick="location.href = '.home.html';"><a href="home.html" class="home_btn"></a></div>
+<br>
+
+<div class="row" id="navigation">
+    <div class="offset-md-8 col-md-2 navigation_option" onClick="$('#modal_login').modal('toggle')">
+        <span class="main_btn_grey"><h2 class="test">share</h2></span>
+       <h3 class="main_btn">I would like to add <br> my story.</h3>
+    </div>
+    <div class="col-md-2 navigation_option">
+        <span class="main_btn_grey"><h2 class="test">explore</h2></span>
+         <h3 class="main_btn">I would like to see <br>other people's stories.</h3>
+    </div>
+</div> 
+
+<div class="main_content container">
+     <div class="container" id="introduction">
+        <div class="row">
+            <div class="align-top">
+                 <h1><span class="placed">Placed</span> <br>... is where we share <br>our stories about places.</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="about" onClick="display_info();">
+        <a href="" class="about_btn" ></a>        
+</div>
+
+
+<div class="row">
+	<div id="about_info" onClick="display_info();">
+		
+		<p class="info">
+				<em style="line-height: 2em;">Director, Designer, Front-end Developer:<br> MiHyun Kim<br>
+				Back-end developer: Alberto Mendoza</em>
+		</p>
+	</div>
+</div>
+
+	</body>
+
+    <!--  Loading Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</html>

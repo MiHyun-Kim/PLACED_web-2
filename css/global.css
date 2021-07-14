@@ -1,0 +1,452 @@
+
+/**********\ Global CSS Attributes /**********/
+
+/****\ HTML Tags /****/
+
+body
+{
+    transition: background-color 2s;
+    color: #ffffff;
+    font-family: Vollkorn, serif;
+    /*font-family: calluna, serif;*/
+   
+}
+
+
+
+/**** Classes ****/
+
+
+
+.badge-light
+{
+    border: solid black 2px;
+    font-size:2em;
+    padding:5px;
+    margin:5px;
+}
+
+.memory_birth
+{
+    color: #55479C;
+   
+}
+
+.memory_breakup
+{
+    color: #005BAA;
+}
+
+.memory_childhood
+{
+    color: #F2AF1C;
+}
+
+.memory_harm
+{
+    color: #C93A94;
+}
+
+.memory_death
+{
+    color: #575759;
+}
+
+.memory_defeat
+{
+    color: #27B8EB;
+}
+
+.memory_learning
+{
+    color: #89D1B6;
+}
+
+.memory_love
+{
+    color: #EC1C24;
+}
+
+.memory_other
+{
+    color: #0B0B0B;
+}
+
+.memory_solitude
+{
+    color: #24B24B;
+}
+
+.memory_triumph
+{
+    color: #F48020;
+}
+
+.memory-types
+{ width: 20%;
+float: left;
+border: 1px solid black;
+    
+}
+.memory-types_01
+{ width: 30%;
+float: left;
+border: 1px solid red;
+    
+}
+
+
+.memory-types label:hover
+{
+    cursor: pointer;
+    /*background-color: lightblue;
+    border: solid 1px gold;
+    border-radius: 30px;
+    padding: 2px;*/
+
+}
+
+
+.navigation_option:hover
+{
+    border: orange;
+    cursor: pointer;
+}
+
+.placed {
+    letter-spacing: 2px;
+   font-size: 1.8em;
+}
+
+.row_memory .flex{
+  
+
+}
+
+.col-md-2 {
+    
+}
+/*
+img.about {
+
+   
+    margin-top:-2.2%;
+    width: 3%;
+    float: right;
+    margin-right: 2.5%;
+    z-index:99;
+    /'border: 1px solid black;
+}*/
+
+
+.story_container {
+    margin-left: 7%;
+}
+
+.about{
+    margin-top: 0%;
+    width: 4%;
+    height: 5%;
+    float: right;
+    margin-right: 2.5%;
+    background-image: url("../images/about_normal.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    /*border: 1px solid black;*/
+}
+
+.about:hover {
+    background-image: url("../images/about_normal_hover.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    cursor: pointer;
+    
+}
+
+
+.about_form{
+    margin-top: 20%;
+    width: 4%;
+    height: 5%;
+    float: right;
+    margin-right: 2.5%;
+    background-image: url("../images/about_normal.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    /'border: 1px solid black;
+}
+
+.about_form:hover {
+    background-image: url("../images/about_normal_hover_pink.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    cursor: pointer;
+    
+}
+
+
+
+.h_button {
+    background-image: url("../images/home.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin-left: 1.3%;
+    width: 4%;
+    height: 5%;
+    
+   
+
+    /*border: 1px solid black;*/
+}
+
+.h_button:hover {
+    background-image: url("../images/home_hover.svg");
+     background-repeat: no-repeat;
+    background-position: left top;
+    cursor: pointer;
+    
+}
+
+
+.main_btn {
+      
+      -webkit-transition: color 1.5s; /* For Safari 3.0 to 6.0 */
+      transition: color 1.5s; /* For modern browsers */
+        
+}
+
+.main_btn:hover {
+    color:  #f2a7cb;
+    
+}
+
+
+.main_btn_form {
+       -webkit-transition: color 2s; /* For Safari 3.0 to 6.0 */
+      transition: color 2s; /* For modern browsers */
+}
+
+.main_btn_form:hover {
+      color: #c9bcff;
+
+    
+}
+
+
+.main_btn_grey {
+     -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */
+      transition: color 1s; /* For modern browsers */
+}
+
+.main_btn_grey:hover {
+    color:  #d3c9ce;
+}
+
+.about_btn_form {
+    margin-top: 20%;
+    /*border: 1px solid black;*/
+}
+
+h1.placed {
+     line-height: 1.8em;
+     font-size:3em;
+}
+h1 {
+    font-size: 3em;
+    letter-spacing:.7px;
+    line-height: 1.5em;
+}
+h2 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 700;
+    border-bottom: 2px solid white;
+    padding-bottom: 7px;
+    letter-spacing: .5px;
+}
+
+
+h2.question {
+    font-size: 2.3em;
+    font-weight: 500;
+    
+    border-bottom: none;
+     font-family: Vollkorn, serif;
+     padding-top: 20px;
+     margin-left: 6%;
+    /'font-family: calluna, serif;
+}
+
+h2.question_2 {
+    font-size: 2.1em;
+    font-weight: 500;
+    
+    border-bottom: none;
+     font-family: Vollkorn, serif;
+     padding-top: 20px;
+     margin-left: 6%;
+     margin-bottom:1%;
+    /'font-family: calluna, serif;
+}
+
+
+h2.test {
+    font-size: 1.4em;
+    letter-spacing:.9px;
+}
+
+
+h3 {
+    
+
+font-family: calluna, serif;
+
+font-weight: 400;
+
+font-style: normal;
+
+    
+    font-size: 1em;
+    line-height: 1.3em;
+ 
+    letter-spacing:.4px;
+    padding-top: 4px;
+}
+
+
+h3.main_btn {
+    font-size: 1.05em;
+    letter-spacing: .5px;
+    
+}
+
+h3.main_btn_form {
+    font-size: 1.05em;
+     letter-spacing: .5px;
+}
+
+
+.gradient {
+    font-size: 1.1em;
+ letter-spacing: 0px;
+   background: linear-gradient(to right, #c6ffdd, #fbd786);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    
+    
+}
+
+
+p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 700;
+    color:#764ba2;
+    margin-bottom: .6rem;
+    
+}
+
+p.signup {
+    font-family: calluna, serif;
+    font-size: 1.8em;
+    font-weight: 400;
+     padding-left: 1.5%;
+    margin-bottom: .2rem;
+}
+
+p.account {
+    
+    font-size: 1em;
+    font-weight: 400;
+    padding-left: 1.5%;
+    color: grey
+}
+
+p.info{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+p.virtual {
+    font-size:1.2em;
+     font-family: calluna, serif;
+     font-weight: 400;
+    padding-left: 1.6%;
+    margin-bottom: 4.5%;
+    letter-spacing: .2px;
+    
+}
+
+a.signin {
+     color: grey;
+    text-decoration: underline;
+}
+
+a.signin:hover{
+      color: #764ba2;
+   
+    text-decoration: underline;
+}
+
+a.next {
+    
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+}
+
+label.email{
+    color: #764ba2;
+     padding-left: 1.5%;
+}
+
+/****Forms****/
+.form-control {
+    
+}
+
+.form-group col {
+    
+}
+
+.form-row {
+    margin-top: 6%;
+    margin-left: 11%;
+}
+
+select option {
+    background-color: white;
+    height: 20px;
+   
+}
+/**** IDs ****/
+
+#about_info
+{
+	border: solid 1px #6e66c8;
+	border-radius:  50%;
+	background-color: rgba(250, 248, 248, .7);
+	-moz-border-radius:50%;
+    -webkit-border-radius:50%;
+	
+	position: relative;
+	top: -2vw;
+	left: 108vw;
+	width: 400px;
+	height: 400px;
+	display: none;
+    margin: -28vw 25vw -26vw -39vw;
+	padding: 10vw 0 0 3vw;
+	
+}
+
+
+
+#about_info:hover
+{
+	cursor: pointer;
+}
+

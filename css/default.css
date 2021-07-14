@@ -1,0 +1,169 @@
+/**********\ Default CSS /**********/
+
+
+input[type=radio] {
+    display:none; 
+    margin:10px;
+}
+
+input:checked + label + img {
+    background: red;
+    border: gold;
+    padding:20px;
+}
+
+
+/****\ IDs /****/
+
+#age option
+{
+    font-size: 2em;
+}
+
+#container {
+    width: 40%;
+    margin-left: 10%;
+}
+
+#main_content
+{
+    max-width: 900px !important;
+}
+
+#introduction , #location, #memory_type, #memory, #map, #memories
+{
+     /*transition: 2s ease-out;*/
+}
+
+#location, #memory_type, #memory
+{
+    font-size: 2.5vh;
+    padding:1.5% 0px 0px 5%;
+}
+
+#introduction 
+{
+    margin: 13% 0 15% 10%;
+}
+
+#introduction:hover
+{
+    
+}
+
+#memory textarea
+{
+    border-radius: 15px;
+}
+
+#memory_type, #memory
+{
+    color:white;
+    display: none;
+}    
+
+#memory_type .badge-light
+{
+    cursor: pointer;
+}
+
+#memory_type .btn
+{
+	color:white;
+}
+
+#memory_type img
+{
+	/*width: 10vw;
+	height: 10vh;*/
+}
+
+#modal_login .modal-content  
+{
+    color: white;
+    background-color:radial-gradient(#cfd9df 50%, #e2ebf0 100%);
+    /*text-align: center;*/
+}
+
+
+
+#modal_login .btn-primary
+{
+background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+border: none;
+font-family: 'PT Sans', sans-serif;
+
+letter-spacing: 1.5px;
+text-transform: uppercase;
+padding-top: 8px;
+ 
+}
+
+
+#modal_login .modal-dialog
+{
+    
+    border-radius: 5px;
+    max-width: 38%;
+    height: auto;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+
+}
+
+#modal_login_account, #modal_login_reset, #modal_error_message
+{
+    display: none;
+}
+
+#city, #state, #country
+{
+    background: transparent;
+    border-top: transparent !important;
+    border-left: transparent !important;
+    border-right: transparent !important;
+    border-bottom: 4px solid !important;
+    
+    color: white;
+    padding-left: 0;
+}
+
+#memory_type_other
+{
+    background: transparent;
+    border-top: transparent !important;
+    border-left: transparent !important;
+    border-right: transparent !important;
+    border-bottom: 4px solid !important;
+    font-size: 2em;
+	color: white;
+    padding-left: 0;
+    width: 14vw;
+}
+
+#navigation {
+    margin-top:-2%;
+}
+
+#generation {
+    margin-top: 5%;
+    
+}
+
+
+
+.memory_type_01 img
+{
+	width: 10vw;
+	height: 20vh;
+}
+
+.notes
+{
+    background-attachment: local;
+    background-image:
+        linear-gradient(to right, white 10px, transparent 10px),
+        linear-gradient(to left, white 10px, transparent 10px),
+        repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    line-height: 31px;
+    padding: 8px 10px;
+}
